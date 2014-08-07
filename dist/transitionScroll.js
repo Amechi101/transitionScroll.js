@@ -1,14 +1,32 @@
 /*
 
-transitionScroll.js    
-http://
-MIT licensed
-Copyright (C) 2014 Amechi Egbe
+        transitionScroll.js v1.0 
 
+        *--------------------------------------------------------------------*
+        Documentation for this plugin lives here:
+        https://github.com/Amechi101/transitionScroll.js
+        *--------------------------------------------------------------------*
+
+        *--------------------------------------------------------------------*
+        Licensed under the MIT license - http://opensource.org/licenses/MIT
+        Copyright (C) 2014 Amechi Egbe
+        *--------------------------------------------------------------------*
+        
+        *--------------------------------------------------------------------*
+        Ping, follow, or look and then if you like, maybe lets get tea!
+        - amechiegbe@gmail.com
+        - @fashionidealist
+        - fashionidealist.com 
+
+        *--------------------------------------------------------------------*
+
+        Made with love in NYC from a USC Trojan.
+
+        Fight On!
 
 */
 
-;(function($, document, window) {
+;(function( $, document, window ) {
     
     function TransitionCore(elem, settings) {
         this.init(elem, settings);
@@ -190,4 +208,4 @@ Copyright (C) 2014 Amechi Egbe
         });
     };
      
-})(jQuery, document, window)
+})( jQuery, document, window );

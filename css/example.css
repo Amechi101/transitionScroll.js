@@ -1,3 +1,14 @@
+.base {
+    width: 300px;
+    height:300px;
+    margin-right:45px;
+    margin-bottom: 40px;
+    background:blue;
+    float:left; 
+}
+
+
+/*  starting phase */
 .scrolling {
     opacity:0;
     -webkit-transform:translate(0,90px);
@@ -7,7 +18,9 @@
     transition:opacity .6s .1s, transform .6s ease
 }
 
-.in-view {
+
+/*  finishing phase */
+ .in-view {
     opacity:1;
     -webkit-transform:translate(0,0);
     -ms-transform:translate(0,0);
