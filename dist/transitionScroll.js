@@ -44,7 +44,7 @@
         $container: null,
          
         /**
-        * The elements that are being annimated
+        * The elements that are being animated
         */
         $animatedElements: null,
          
@@ -67,11 +67,11 @@
         * Defaults for Settings
         */
         defaults: {
-            //Time in beteween each element transitioning
+            //Time in between each element transitioning
             transitionDelay: 100,
              
             //To grab which element to transition, you can use jQuery Selector
-            selector: "article",
+            selector: null,
          
             /**
             * Custom functionality when scrolling down. Default is on the prototype (functions)
@@ -146,7 +146,7 @@
         isElementInView: function($element) {
             var docViewTop = $(window).scrollTop(),
                 docViewBottom = docViewTop + $(window).height(),
-                elemTop = $element.offset().top,
+                elemTop = parseInt($element.offset().top, 10),
                 elemBottom = elemTop + $element.height();
              
             return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && 
