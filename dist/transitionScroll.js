@@ -1,6 +1,6 @@
 /*
 
-        transitionScroll.js v1.0 
+        transitionScroll.js
 
         *--------------------------------------------------------------------*
         Documentation for this plugin lives here:
