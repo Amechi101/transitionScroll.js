@@ -12,9 +12,37 @@ http://amechi101.github.io/transitionScroll.js.
 
 Dependencies
 ------------
+To Start using transitionScroll.js:
 <ul>
 	<li> transitionScroll.js </li>
 	<li> underscore.js </li>
 	<li> jQuery </li>
 	<li> core.css </li>
 </ul>
+
+##Options
+
+```js
+$('.container').transitionScroll({
+	
+	/*
+       Defaults for Settings
+    */
+        defaults: {
+            
+            //Time in beteween each element transitioning
+            transitionDelay: 100,
+             
+            //To grab which element to transition, you can use jQuery Selector
+            selector: ".class",
+         
+            /*
+            	Custom functionality when scrolling up, down or when the elements are in view. 
+            */
+            onScrollUp: function() {},
+            onScrollDown: function() {},
+            isElementInView: function() {}
+        }
+
+});
+```
