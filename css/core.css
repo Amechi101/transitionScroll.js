@@ -1,38 +1,26 @@
 .base {
     width: 300px;
     height:300px;
+    margin-right:45px;
+    margin-bottom: 40px;
     background:blue;
     float:left; 
 }
 
-#hit {
-    float: right;
-    top:0;
-    position: fixed;
-}
-
-article {
-  margin-right:45px;
-  margin-bottom: 40px;
-}
-
 
 /*  starting phase */
-.js.no-touch.csstransitions [data-show="on-scroll"] {
+ [data-show~="on-scroll"] {
     opacity:0;
     -webkit-transform:translate(0,90px);
     -ms-transform:translate(0,90px);
     transform:translate(0,90px);
- 
-    
     -webkit-transition:opacity .6s .1s, -webkit-transform .6s ease;
     transition:opacity .6s .1s, transform .6s ease
 }
 
 
-
 /*  finishing phase */
-.js.no-touch.csstransitions .in-view {
+ .in-view {
     opacity:1;
     -webkit-transform:translate(0,0);
     -ms-transform:translate(0,0);
