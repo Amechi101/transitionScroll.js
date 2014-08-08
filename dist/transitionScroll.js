@@ -76,9 +76,9 @@
             /**
             * Custom functionality when scrolling down. Default is on the prototype (functions)
             */
-            onScrollUp: null,
-            onScrollDown: null,
-            isElementInView: null
+            onScrollUp:function() {},
+            onScrollDown:function() {},
+            isElementInView:function() {}
         },
          
         /**
@@ -108,7 +108,7 @@
              
         _(funcsThatCanBeOverwritten).each(function(func) {
             //check if the user has specificed it and if so overwrite it
-            if (_.isFunction(settings[func])) {
+            if ( typeof settings[func] === 'object' ) {
                 this[func] = settings[func];
             }
         });
@@ -151,8 +151,8 @@
              
             return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && 
                     (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-            },
-         
+
+        },         
         /**
         * Chain of events that happens to animate the elements
         * #1 : figure out WHAT we are animate
