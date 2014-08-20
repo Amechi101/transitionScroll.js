@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 			},
 			css: {
 				files: ['css/core.css']
-			}
+			},
 			tasks:['jshint','csslint']
 		},
 		
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 					"globals": {
 						'jQuery':true
 					}
-				},
+				}
 			},
 			all: ['Gruntfile.js', 'dist/*.js']
 		}
