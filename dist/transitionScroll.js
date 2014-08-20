@@ -130,7 +130,7 @@
         * Default functionality when scrolling down. Overwritten in settings
         */
         onScrollDown: function($element) {
-            $element.addClass('in-view');
+            $element.addClass('in-view'); 
         },
          
         /**
@@ -148,9 +148,14 @@
                 docViewBottom = docViewTop + $(window).height(),
                 elemTop = parseInt($element.offset().top, 10),
                 elemBottom = elemTop + $element.height();
+
+
              
-            return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && 
-                    (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+            if ( (elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop) ) {
+                return true;
+            } else {
+                return false;
+            }
 
         },         
         /**
@@ -176,7 +181,7 @@
              
             //delay animation of the element by it's index (2nd element will be delay by
             //x ms, 3rd by 2x, 4th by 3x)
-                $element.css("transition-delay", this.settings.transitionDelay * i + "ms");
+                $element.css("transition-delay", (this.settings.transitionDelay * (i + 1)) + "ms");
              
                 if (this._direction === 'down') {
                     this.onScrollDown.bind(this)($element);
