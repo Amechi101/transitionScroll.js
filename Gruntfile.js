@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 					"globals": {
 						'jQuery':true
 					}
-				}
+				},
 			},
 			all: ['Gruntfile.js', 'dist/*.js']
 		}
@@ -37,6 +37,6 @@ module.exports = function (grunt) {
 
 
 	//Register default task
-	grunt.registerTask('default', ['watch']);
+	grunt.registerTask('default', ["watch"]);
 
 };
