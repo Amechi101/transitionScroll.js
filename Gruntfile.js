@@ -11,7 +11,7 @@ module.exports = function (grunt) {
 			css: {
 				files: ['css/core.css']
 			}
-			tasks:['jslint','csslint']
+			tasks:['jshint','csslint']
 		},
 		
 		jshint: {
