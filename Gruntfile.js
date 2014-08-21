@@ -32,9 +32,6 @@ module.exports = function (grunt) {
 		csslint: {
   			strict: {
     			src: ['css/core.css']
-  			},
-  			lax: {
-    			src: ['css/core.css']
   			}
 		}
 	});
