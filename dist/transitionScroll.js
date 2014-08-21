@@ -98,7 +98,9 @@
              
             //throttle onScroll to 100ms. This means that it will only call onScroll a max of once every
             //100ms when the user is scrolling
-            $(window).scroll(_.throttle(this.onScroll.bind(this), 100));
+            $(window).scroll(_.throttle(this.onScroll.bind(this), 100, {
+                trailing: true
+            }));
         },
          
         _checkOverwriteFunctions: function(settings) {
@@ -107,11 +109,12 @@
             settings = settings || {};
              
         _(funcsThatCanBeOverwritten).each(function(func) {
-            //check if the user has specificed it and if so overwrite it
+                //check if the user has specificed it and if so overwrite it
             if ( typeof settings[func] === 'object' ) {
                 this[func] = settings[func];
             }
-        });
+            
+            });
         },
          
         /**
@@ -144,14 +147,24 @@
         * Checks whether the element is in view
         */
         isElementInView: function($element) {
-            var docViewTop = $(window).scrollTop(),
+            var buffer = 0,
+                docViewTop = $(window).scrollTop(),
                 docViewBottom = docViewTop + $(window).height(),
                 elemTop = parseInt($element.offset().top, 10),
                 elemBottom = elemTop + $element.height();
 
+            if ( 
+                //bottom of element is lower than the top of the page
+                (elemBottom + buffer >= docViewTop ) && 
+                //top of the element is higher than the bottom of the page
+                (elemTop <= docViewBottom + buffer) && 
 
-             
-            if ( (elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop) ) {
+                //bottom of the element is higher than bottom of the document
+                (elemBottom <= docViewBottom + buffer) && 
+
+                //top of the element is lower than top of the document
+                (elemTop + buffer >= docViewTop) ) 
+            {
                 return true;
             } else {
                 return false;
@@ -171,7 +184,8 @@
             //function (_elemnentInView) to determine if they're in view on not
             .filter(function(i, element) {
             //we only want to act on elements in view
-            
+                
+                //console.log('val returned', $(element), this.isElementInView($(element)))
                 return this.isElementInView($(element));
             }.bind(this))
              
@@ -196,9 +210,12 @@
         * saves to this._direction
         */
         _getScrollDirection: function($window) {
-            
+            var overScroll = $window.scrollTop() + $window.height() >= $(document).height();
+
+            if(overScroll) { return true; }
+
             this._direction = ($window.scrollTop() > this._previousScrollTop) ? 'down' : 'up';
-             
+
             this._previousScrollTop = $window.scrollTop();
         }
     };

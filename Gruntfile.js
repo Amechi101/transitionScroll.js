@@ -37,6 +37,6 @@ module.exports = function (grunt) {
 
 
 	//Register default task
-	grunt.registerTask('default', ["watch"]);
+	grunt.registerTask('default', ["watch"], ["csslint"]);
 
 };
