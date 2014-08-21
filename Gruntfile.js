@@ -27,6 +27,15 @@ module.exports = function (grunt) {
 				}
 			},
 			all: ['Gruntfile.js', 'dist/*.js']
+		},
+
+		csslint: {
+  			strict: {
+    			src: ['css/core.css']
+  			},
+  			lax: {
+    			src: ['css/core.css']
+  			}
 		}
 	});
 
@@ -37,6 +46,6 @@ module.exports = function (grunt) {
 
 
 	//Register default task
-	grunt.registerTask('default', ["watch"], ["csslint"]);
+	grunt.registerTask('default', ["watch"], ["csslint:strict"]);
 
 };
