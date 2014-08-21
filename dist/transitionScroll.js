@@ -27,6 +27,8 @@
 */
 
 ;(function( $, document, window ) {
+
+    'use strict';
     
     function TransitionCore(elem, settings) {
         this.init(elem, settings);
